@@ -13,13 +13,23 @@ import {
   summaryStatus,
 } from './refs.js';
 
-nextBtn.addEventListener('click', onClick);
+nextBtn.addEventListener('click', onNextBtn);
 form.addEventListener('submit', onSubmit);
 backBtn.addEventListener('click', onBackBtn);
 
-amountSlider.addEventListener('input', e => (amountSliderValue.innerHTML = e.target.value));
+amountSlider.addEventListener('input', e => {
+  amountSliderValue.innerHTML = e.target.value;
+});
 
-termSlider.addEventListener('input', e => (termSliderValue.innerHTML = e.target.value));
+termSlider.addEventListener('input', e => {
+  termSliderValue.innerHTML = e.target.value;
+});
+
+questions.forEach(el => {
+  el.addEventListener('input', e => {
+    if (e.target.value) nextBtn.removeAttribute('disabled');
+  });
+});
 
 function onBackBtn() {
   let foundIndex = null;
@@ -51,7 +61,8 @@ function onBackBtn() {
   }
 }
 
-function onClick() {
+function onNextBtn() {
+  nextBtn.setAttribute('disabled', 'disabled');
   let foundIndex = null;
 
   questions.forEach((question, index) => {
@@ -85,6 +96,7 @@ function onClick() {
   }
 }
 
+const amount = document.querySelector('.amount');
 function onSubmit(e) {
   e.preventDefault();
   const formData = new FormData(form);
@@ -93,4 +105,5 @@ function onSubmit(e) {
   submitBtn.classList.add('none');
   summaryStatus.classList.remove('visibleStatus');
   console.log(values);
+  amount.textContent = `Loan amount: ${values.loanAmount}`;
 }

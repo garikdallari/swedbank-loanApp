@@ -18,14 +18,14 @@
 
       <label class="question visible"
         >Loan amount
-        <input type="range" min="0" value="100" max="3000" name="loan amount" id="amountSlider" />
+        <input type="range" min="0" value="100" max="3000" name="loanAmount" id="amountSlider" />
         <span class="amountValue">0</span>
       </label>
 
       <label class="question"
         >Loan term
-        <input type="range" min="3" value="1" max="48" name="loan term" id="termSlider" />
-        <span class="termValue">3</span>
+        <input type="range" min="0" value="1" max="48" name="loanTerm" id="termSlider" />
+        <span class="termValue">0</span>
       </label>
 
       <label class="question"
@@ -87,9 +87,13 @@
       <label class="question"
         >Leave comments if needed <textarea name="comments" cols="50" rows="10"></textarea>
       </label>
-      <button type="button" class="nextBtn">Next</button>
+      <button type="button" class="nextBtn" disabled="disabled">Next</button>
       <button type="submit" class="submit none">Send Application</button>
     </form>
+
+    <div class="summary">
+      <p class="amount"></p>
+    </div>
 
     <script type="module" src="./js/index.js"></script>
   </body>
