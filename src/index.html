@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <title>Survey</title>
+  </head>
+  <body>
+    <h2>Loan application form</h2>
+    <div class="status loanData visibleStatus">Loan application</div>
+    <div class="status bio">Personal data</div>
+    <div class="status summary">Summary</div>
+
+    <form type="submit" class="form">
+      <button type="button" class="back none">Back</button>
+
+      <label class="question visible"
+        >Loan amount
+        <input type="range" min="0" value="100" max="3000" name="loan amount" id="amountSlider" />
+        <span class="amountValue">0</span>
+      </label>
+
+      <label class="question"
+        >Loan term
+        <input type="range" min="3" value="1" max="48" name="loan term" id="termSlider" />
+        <span class="termValue">3</span>
+      </label>
+
+      <label class="question"
+        >Loan purpose
+        <select name="purpose">
+          <option value="Choose"></option>
+          <option value="House renovation">House renovation</option>
+          <option value="Education">Education</option>
+          <option value="Car purchase or repair">Car purchase</option>
+          <option value="Other">Other</option>
+        </select>
+      </label>
+
+      <label class="question">Monthly salary after taxes <input type="text" name="salary" /></label>
+
+      <label class="question"
+        >Name and Surname
+        <input
+          class="input"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="type your name and surname"
+        />
+      </label>
+
+      <label class="question">
+        Education
+        <input type="radio" name="education" value="Primary education" />Primary education
+        <input type="radio" name="education" value="Secondary education" />Secondary education
+        <input type="radio" name="education" value="Higher education" />Higher education
+      </label>
+
+      <label class="question">
+        Job category
+        <select name="job">
+          <option value="choose"></option>
+          <option value="specialist/office worker">Specialist / office worker</option>
+          <option value="top manager">Top manager</option>
+          <option value="worker">Worker</option>
+          <option value="student">Student</option>
+          <option value="senior">Senior citizen</option>
+          <option value="unemployed">Unemployed</option>
+        </select>
+      </label>
+
+      <label class="question">
+        Time employed
+        <input type="radio" name="workingTime" value="Up to 1 year" />
+        Up to 1 year
+        <input type="radio" name="workingTime" value="Up to 3 years" />
+        Up to 3 years
+        <input type="radio" name="workingTime" value="Up to 5 years" />
+        Up to 5 years
+        <input type="radio" name="workingTime" value="More than 5 years" />
+        More than 5 years
+      </label>
+
+      <label class="question"
+        >Leave comments if needed <textarea name="comments" cols="50" rows="10"></textarea>
+      </label>
+      <button type="button" class="nextBtn">Next</button>
+      <button type="submit" class="submit none">Send Application</button>
+    </form>
+
+    <script type="module" src="./js/index.js"></script>
+  </body>
+</html>

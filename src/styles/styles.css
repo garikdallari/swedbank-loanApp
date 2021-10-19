@@ -1,0 +1,17 @@
+.question {
+    margin-top: 20px;
+    margin-bottom:40px;
+    display: none;
+}
+.visible {
+    display: block;
+}
+.none {
+    display: none;
+}
+.status {
+    display: none;
+}
+.visibleStatus {
+    display: block;
+}

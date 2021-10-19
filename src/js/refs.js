@@ -1,0 +1,12 @@
+export const questions = document.querySelectorAll('.question');
+export const nextBtn = document.querySelector('.nextBtn');
+export const submitBtn = document.querySelector('.submit');
+export const form = document.querySelector('.form');
+export const backBtn = document.querySelector('.back');
+export const amountSlider = document.getElementById('amountSlider');
+export const amountSliderValue = document.querySelector('.amountValue');
+export const termSlider = document.getElementById('termSlider');
+export const termSliderValue = document.querySelector('.termValue');
+export const loanDataStatus = document.querySelector('.loanData');
+export const bioStatus = document.querySelector('.bio');
+export const summaryStatus = document.querySelector('.summary');
