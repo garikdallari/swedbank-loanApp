@@ -12,6 +12,7 @@ import {
   bioStatus,
   summaryStatus,
   summaryContainer,
+  formContainer,
 } from './refs.js';
 
 nextBtn.addEventListener('click', onNextBtn);
@@ -82,12 +83,13 @@ function onNextBtn() {
   if (questions[foundIndex] === questions[questions.length - 2]) {
     bioStatus.classList.remove('visibleStatus');
     summaryStatus.classList.add('visibleStatus');
+    submitBtn.removeAttribute('disabled');
+    nextBtn.classList.add('none');
+    submitBtn.classList.remove('none');
   }
 
   if (lastQuestion) {
-    questions[foundIndex].classList.remove('visible');
-    nextBtn.classList.add('none');
-    submitBtn.classList.remove('none');
+    questions[foundIndex].classList.add('visible');
   }
 
   if (questions[questions.length - 1] !== questions[foundIndex]) {
@@ -119,9 +121,7 @@ function onSubmit(e) {
   e.preventDefault();
   const formData = new FormData(form);
   const values = Object.fromEntries(formData.entries());
-  backBtn.classList.add('none');
-  submitBtn.classList.add('none');
-  summaryStatus.classList.remove('visibleStatus');
-
+  formContainer.classList.add('none');
+  summaryContainer.classList.remove('none');
   makeSummary(values);
 }

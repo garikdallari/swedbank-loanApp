@@ -45,7 +45,7 @@
 
               <label class="question">
                 <span class="question-text">Loan purpose</span>
-                <select name="purpose">
+                <select class="select" name="purpose">
                   <option value="Choose"></option>
                   <option value="House renovation">House renovation</option>
                   <option value="Education">Education</option>
@@ -55,34 +55,47 @@
               </label>
 
               <label class="question">
-                <span class="question-text">Monthly salary after taxes</span>
-                <input type="text" name="salary"
+                <span class="question-text question-text--left">Monthly salary after taxes</span>
+                <input class="salaryInput" type="text" name="salary" placeholder="amount"
               /></label>
 
               <label class="question">
                 <span class="question-text">Name and Surname</span>
                 <input
-                  class="input"
+                  class="nameInput"
                   type="text"
                   name="name"
                   id="name"
-                  placeholder="type your name and surname"
+                  placeholder="type your name and surname..."
                 />
               </label>
 
               <label class="question">
-                Education
                 <span class="question-text">Education</span>
-                <input type="radio" name="education" value="Primary education" />Primary education
-                <input type="radio" name="education" value="Secondary education" />Secondary
-                education <input type="radio" name="education" value="Higher education" />Higher
-                education
+                <input
+                  class="radioInput"
+                  type="radio"
+                  name="education"
+                  value="Primary education"
+                />Primary education
+
+                <input
+                  class="radioInput"
+                  type="radio"
+                  name="education"
+                  value="Secondary education"
+                />Secondary education
+                <input
+                  class="radioInput"
+                  type="radio"
+                  name="education"
+                  value="Higher education"
+                />Higher education
               </label>
 
               <label class="question">
-                Job category
                 <span class="question-text">Job category</span>
-                <select name="job">
+                <select class="select" name="job">
                   <option value="choose"></option>
                   <option value="specialist/office worker">Specialist / office worker</option>
                   <option value="top manager">Top manager</option>
@@ -94,29 +107,32 @@
               </label>
 
               <label class="question">
-                Time employed
-                <span class="question-text">Time employedm</span>
-                <input type="radio" name="workingTime" value="Up to 1 year" />
+                <span class="question-text">Time employed</span>
+                <input class="radioInput" type="radio" name="workingTime" value="Up to 1 year" />
                 Up to 1 year
-                <input type="radio" name="workingTime" value="Up to 3 years" />
+                <input class="radioInput" type="radio" name="workingTime" value="Up to 3 years" />
                 Up to 3 years
-                <input type="radio" name="workingTime" value="Up to 5 years" />
+                <input class="radioInput" type="radio" name="workingTime" value="Up to 5 years" />
                 Up to 5 years
-                <input type="radio" name="workingTime" value="More than 5 years" />
+                <input
+                  class="radioInput"
+                  type="radio"
+                  name="workingTime"
+                  value="More than 5 years"
+                />
                 More than 5 years
               </label>
 
-              <label class="question"
-                >Leave comments if needed
-                <span class="question-text">Leave comments if needed</span>
-                <textarea name="comments" cols="50" rows="10"></textarea>
+              <label class="question">
+                <span class="question-text question-text--center">Leave comments if needed</span>
+                <textarea class="textarea" name="comments" cols="40" rows="5"></textarea>
               </label>
               <button type="button" class="nextBtn btn" disabled="disabled">Next</button>
-              <button type="submit" class="submit none">Send Application</button>
+              <button type="submit" class="submit none btn nextBtn" disabled>Summary</button>
             </form>
           </div>
 
-          <div class="summaryContainer"></div>
+          <div class="summaryContainer none"></div>
         </section>
       </main>
     </div>

@@ -11,3 +11,4 @@ export const loanDataStatus = document.querySelector('.loanData');
 export const bioStatus = document.querySelector('.bio');
 export const summaryStatus = document.querySelector('.summary');
 export const summaryContainer = document.querySelector('.summaryContainer');
+export const formContainer = document.querySelector('.formContainer');
