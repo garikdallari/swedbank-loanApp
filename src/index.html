@@ -69,28 +69,28 @@
                   placeholder="type your name and surname..."
                 />
               </label>
-
-              <label class="question">
+              <br />
+              <label class="question question-radio">
                 <span class="question-text">Education</span>
                 <input
                   class="radioInput"
                   type="radio"
                   name="education"
                   value="Primary education"
-                />Primary education
+                />Primary education <br />
 
                 <input
                   class="radioInput"
                   type="radio"
                   name="education"
                   value="Secondary education"
-                />Secondary education
+                />Secondary education <br />
                 <input
                   class="radioInput"
                   type="radio"
                   name="education"
                   value="Higher education"
-                />Higher education
+                />Higher education <br />
               </label>
 
               <label class="question">
@@ -109,11 +109,11 @@
               <label class="question">
                 <span class="question-text">Time employed</span>
                 <input class="radioInput" type="radio" name="workingTime" value="Up to 1 year" />
-                Up to 1 year
+                Up to 1 year <br />
                 <input class="radioInput" type="radio" name="workingTime" value="Up to 3 years" />
-                Up to 3 years
+                Up to 3 years <br />
                 <input class="radioInput" type="radio" name="workingTime" value="Up to 5 years" />
-                Up to 5 years
+                Up to 5 years <br />
                 <input
                   class="radioInput"
                   type="radio"
@@ -132,7 +132,13 @@
             </form>
           </div>
 
-          <div class="summaryContainer none"></div>
+          <div class="summaryContainer none">
+            <button class="sendBtn" type="button">Send application</button>
+          </div>
+
+          <h1 class="afterSubmitText none">
+            Thanks for your application. Our clients manager will contact you in 24 hours.
+          </h1>
         </section>
       </main>
     </div>

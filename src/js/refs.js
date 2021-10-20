@@ -12,3 +12,6 @@ export const bioStatus = document.querySelector('.bio');
 export const summaryStatus = document.querySelector('.summary');
 export const summaryContainer = document.querySelector('.summaryContainer');
 export const formContainer = document.querySelector('.formContainer');
+export const sendBtn = document.querySelector('.sendBtn');
+export const afterSubmitText = document.querySelector('.afterSubmitText');
+export const statusList = document.querySelector('.status-list');
