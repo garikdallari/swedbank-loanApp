@@ -11,6 +11,7 @@ import {
   loanDataStatus,
   bioStatus,
   summaryStatus,
+  summaryContainer,
 } from './refs.js';
 
 nextBtn.addEventListener('click', onNextBtn);
@@ -96,7 +97,24 @@ function onNextBtn() {
   }
 }
 
-const amount = document.querySelector('.amount');
+const makeSummary = values =>
+  summaryContainer.insertAdjacentHTML(
+    'afterbegin',
+    `
+<p>Loan information</p> 
+<p>Loan amount: <span>${values.loanAmount}</span></p>
+<p>Loan term: <span>${values.loanTerm}</span></p>
+<p>Purpose: <span>${values.purpose}</span></p>
+<p>Your salary: <span>${values.salary}</span></p>
+<p>Personal Data</p>
+<p>Name and Surname: <span>${values.name}</span></p>
+<p>Education level: <span>${values.education}</span></p>
+<p>Your job sphere: <span>${values.job}</span></p>
+<p>Time employed: <span>${values.workingTime}</span></p>
+<p>Comments: <span>${values.comments}</span></p> 
+`,
+  );
+
 function onSubmit(e) {
   e.preventDefault();
   const formData = new FormData(form);
@@ -104,6 +122,6 @@ function onSubmit(e) {
   backBtn.classList.add('none');
   submitBtn.classList.add('none');
   summaryStatus.classList.remove('visibleStatus');
-  console.log(values);
-  amount.textContent = `Loan amount: ${values.loanAmount}`;
+
+  makeSummary(values);
 }
