@@ -40,30 +40,38 @@ sendBtn.addEventListener('click', e => {
 });
 
 nameInput.addEventListener('keypress', e => {
-  console.log(e.keyCode);
-  if (e.keyCode >= 97 && e.keyCode <= 122) {
+  const words = e.keyCode >= 97 && e.keyCode <= 122;
+  if (words) {
+    nextBtn.removeAttribute('disabled');
     nameInput.classList.remove('error');
     nameInput.classList.add('success');
   } else {
+    nextBtn.setAttribute('disabled', 'disabled');
     nameInput.classList.add('error');
     nameInput.classList.remove('success');
   }
 });
 
 salaryInput.addEventListener('keypress', e => {
-  if (e.keyCode >= 48 && e.keyCode <= 58) {
+  const numbers = e.keyCode >= 48 && e.keyCode <= 58;
+  if (numbers) {
+    nextBtn.removeAttribute('disabled');
     salaryInput.classList.remove('error');
     salaryInput.classList.add('success');
   } else {
     salaryInput.classList.add('error');
     salaryInput.classList.remove('success');
+    nextBtn.setAttribute('disabled', 'disabled');
   }
 });
 
-questions.forEach(el => {
-  el.addEventListener('input', e => {
-    if (e.target.value) nextBtn.removeAttribute('disabled');
-    if (e.target.value === '') {
+questions.forEach(question => {
+  question.addEventListener('input', e => {
+    const value = e.target.value;
+    const erroredAnswer = e.target.classList.contains('error');
+    if (value) nextBtn.removeAttribute('disabled');
+    if (erroredAnswer) nextBtn.setAttribute('disabled', 'disabled');
+    if (value === '') {
       salaryInput.classList.remove('success');
       salaryInput.classList.remove('error');
       nameInput.classList.remove('success');
@@ -75,23 +83,29 @@ questions.forEach(el => {
 
 function onBackBtn() {
   let foundIndex = null;
+  const lastQuestion = questions[questions.length - 1];
   questions.forEach((question, index) => {
-    if (question.classList.contains('visible')) {
+    const currentQuestion = question.classList.contains('visible');
+    if (currentQuestion) {
       foundIndex = index;
     }
   });
 
+  questions[foundIndex].classList.remove('visible');
+  questions[foundIndex - 1].classList.add('visible');
+
   if (!foundIndex) {
-    questions[questions.length - 1].classList.add('visible');
+    lastQuestion.classList.add('visible');
     submitBtn.classList.add('none');
     nextBtn.classList.remove('none');
     return;
   }
 
-  questions[foundIndex].classList.remove('visible');
-  questions[foundIndex - 1].classList.add('visible');
-
   if (foundIndex === 1) backBtn.classList.add('none');
+  if (foundIndex === 8) {
+    submitBtn.classList.add('none');
+    nextBtn.classList.remove('none');
+  }
 
   if (foundIndex < 5) {
     loanDataStatus.classList.add('visibleStatus');
@@ -108,13 +122,14 @@ function onBackBtn() {
 function onNextBtn() {
   nextBtn.setAttribute('disabled', 'disabled');
   let foundIndex = null;
+  const lastQuestion = questions[questions.length - 1];
 
   questions.forEach((question, index) => {
     const currentQuestion = question.classList.contains('visible');
     if (currentQuestion) foundIndex = index;
   });
 
-  const lastQuestion = questions[foundIndex] === questions[questions.length - 1];
+  const currentQuestionIsLastQuestion = questions[foundIndex] === questions[questions.length - 1];
 
   if (!foundIndex && foundIndex !== 0) return;
 
@@ -131,11 +146,11 @@ function onNextBtn() {
     submitBtn.classList.remove('none');
   }
 
-  if (lastQuestion) {
+  if (currentQuestionIsLastQuestion) {
     questions[foundIndex].classList.add('visible');
   }
 
-  if (questions[questions.length - 1] !== questions[foundIndex]) {
+  if (lastQuestion !== questions[foundIndex]) {
     questions[foundIndex].classList.remove('visible');
     questions[foundIndex + 1].classList.add('visible');
     backBtn.classList.remove('none');

@@ -250,13 +250,16 @@ input[type='range']::-webkit-slider-thumb {
 .tooltipText {
   visibility: hidden;
   position: absolute;
-  top: -40px;
+  top: -60px;
   left: 20px;
   padding: 5px;
   width: 150px;
   font-size: 14px;
   background: var(--color-lightgrey);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.tooltipText--down {
+  top: -30px;
 }
 .tooltip:hover .tooltipText {
   visibility: visible;
@@ -274,8 +277,12 @@ input[type='range']::-webkit-slider-thumb {
   background: var(--color-yellow);
 }
 .tooltip-amount--pos {
-  top: 25px;
+  top: 20px;
   left: 190px;
+}
+.tooltip-term--pos {
+  top: 20px;
+  left: 160px;
 }
 .tooltip-name--pos {
   top: 15px;
