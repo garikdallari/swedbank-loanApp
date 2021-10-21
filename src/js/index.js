@@ -16,6 +16,8 @@ import {
   sendBtn,
   afterSubmitText,
   statusList,
+  salaryInput,
+  nameInput,
 } from './refs.js';
 
 nextBtn.addEventListener('click', onNextBtn);
@@ -37,9 +39,37 @@ sendBtn.addEventListener('click', e => {
   statusList.classList.add('none');
 });
 
+nameInput.addEventListener('keypress', e => {
+  console.log(e.keyCode);
+  if (e.keyCode >= 97 && e.keyCode <= 122) {
+    nameInput.classList.remove('error');
+    nameInput.classList.add('success');
+  } else {
+    nameInput.classList.add('error');
+    nameInput.classList.remove('success');
+  }
+});
+
+salaryInput.addEventListener('keypress', e => {
+  if (e.keyCode >= 48 && e.keyCode <= 58) {
+    salaryInput.classList.remove('error');
+    salaryInput.classList.add('success');
+  } else {
+    salaryInput.classList.add('error');
+    salaryInput.classList.remove('success');
+  }
+});
+
 questions.forEach(el => {
   el.addEventListener('input', e => {
     if (e.target.value) nextBtn.removeAttribute('disabled');
+    if (e.target.value === '') {
+      salaryInput.classList.remove('success');
+      salaryInput.classList.remove('error');
+      nameInput.classList.remove('success');
+      nameInput.classList.remove('error');
+      nextBtn.setAttribute('disabled', 'disabled');
+    }
   });
 });
 
@@ -71,6 +101,8 @@ function onBackBtn() {
     summaryStatus.classList.remove('visibleStatus');
     bioStatus.classList.add('visibleStatus');
   }
+
+  nextBtn.removeAttribute('disabled');
 }
 
 function onNextBtn() {
@@ -78,7 +110,8 @@ function onNextBtn() {
   let foundIndex = null;
 
   questions.forEach((question, index) => {
-    if (question.classList.contains('visible')) foundIndex = index;
+    const currentQuestion = question.classList.contains('visible');
+    if (currentQuestion) foundIndex = index;
   });
 
   const lastQuestion = questions[foundIndex] === questions[questions.length - 1];

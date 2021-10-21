@@ -15,3 +15,5 @@ export const formContainer = document.querySelector('.formContainer');
 export const sendBtn = document.querySelector('.sendBtn');
 export const afterSubmitText = document.querySelector('.afterSubmitText');
 export const statusList = document.querySelector('.status-list');
+export const salaryInput = document.querySelector('.salaryInput');
+export const nameInput = document.querySelector('.nameInput');

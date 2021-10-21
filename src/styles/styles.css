@@ -172,8 +172,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 .salaryInput {
   padding: 10px;
-  padding-left: 25px;
-  width: 60px;
+  width: 80px;
   font-size: 20px;
   border: none;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -236,6 +235,9 @@ input[type='range']::-webkit-slider-thumb {
   color: var(--color-yellow);
   font-size: 20px;
 }
+.summary-item > p {
+  margin-left: 40px;
+}
 .afterSubmitText {
   position: absolute;
   top: 50%;
@@ -245,9 +247,59 @@ input[type='range']::-webkit-slider-thumb {
   font-size: 22px;
 }
 
+.tooltipText {
+  visibility: hidden;
+  position: absolute;
+  top: -40px;
+  left: 20px;
+  padding: 5px;
+  width: 150px;
+  font-size: 14px;
+  background: var(--color-lightgrey);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.tooltip:hover .tooltipText {
+  visibility: visible;
+}
+
+.tooltip {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--color-yellow);
+}
+.tooltip-amount--pos {
+  top: 25px;
+  left: 190px;
+}
+.tooltip-name--pos {
+  top: 15px;
+  left: 340px;
+}
+.tooltip-salary--pos {
+  top: 20px;
+  left: 450px;
+}
+.tooltip::after {
+  content: '?';
+  display: block;
+  font-weight: bold;
+}
+
 .visible {
   display: block;
 }
 .none {
   display: none;
+}
+.success {
+  border: 2px solid green;
+}
+.error {
+  border: 2px solid red;
 }

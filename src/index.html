@@ -24,8 +24,11 @@
             <form type="submit" class="form">
               <button type="button" class="backBtn none btn">Back</button>
 
-              <label class="question visible"
-                ><span class="question-text">Loan amount</span>
+              <label class="question visible">
+                <div class="tooltip tooltip-amount--pos">
+                  <span class="tooltipText">Amount of loan what you want to apply for</span>
+                </div>
+                <span class="question-text">Loan amount</span>
                 <input
                   type="range"
                   min="0"
@@ -55,13 +58,25 @@
               </label>
 
               <label class="question">
+                <div class="tooltip tooltip-salary--pos">
+                  <span class="tooltipText">Only numbers allowed</span>
+                </div>
                 <span class="question-text question-text--left">Monthly salary after taxes</span>
-                <input class="salaryInput" type="text" name="salary" placeholder="amount"
+                <input
+                  autocomplete="off"
+                  class="salaryInput"
+                  type="text"
+                  name="salary"
+                  placeholder="amount"
               /></label>
 
               <label class="question">
+                <div class="tooltip tooltip-name--pos">
+                  <span class="tooltipText">Only words allowed</span>
+                </div>
                 <span class="question-text">Name and Surname</span>
                 <input
+                  autocomplete="off"
                   class="nameInput"
                   type="text"
                   name="name"
@@ -97,7 +112,7 @@
                 <span class="question-text">Job category</span>
                 <select class="select" name="job">
                   <option value="choose"></option>
-                  <option value="specialist/office worker">Specialist / office worker</option>
+                  <option value="specialist/office worker">Specialist / Office worker</option>
                   <option value="top manager">Top manager</option>
                   <option value="worker">Worker</option>
                   <option value="student">Student</option>
